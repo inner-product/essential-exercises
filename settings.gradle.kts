@@ -8,4 +8,3 @@
  */
 
 rootProject.name = "essential-exercises"
-How to be an Alien : A Handbook for Beginners and Advanced Pupils
