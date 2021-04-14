@@ -25,12 +25,14 @@ val sharedSettings = Seq(
     "org.creativescala" %% "doodle"        % doodleVersion,
     "org.scalameta"     %% "munit"         % munitVersion % Test
   ),
+  // Turn on some compiler flags that scalafix needs
   scalacOptions ++= Seq(
-    "-deprecation",
     "-Yrangepos",
     "-Ymacro-annotations",
     "-Wunused:imports",
   ),
+  // Don't warn on dead code---some of the exercises need this
+  scalacOptions -= ("-Wdead-code"),
   testFrameworks += new TestFramework("munit.Framework"),
   addCompilerPlugin(scalafixSemanticdb)
 )
