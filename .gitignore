@@ -13,3 +13,6 @@ frontend/build
 
 # Ignore Gradle build output directory
 build
+
+# Ignore IntelliJ directory
+.idea
