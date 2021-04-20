@@ -24,12 +24,9 @@ package essentialscala.section2
 //
 // What is the type of a predicate in Scala?
 //
-// We want to generate some useful output if the predicate fails. This might be
-// represented as a function from the input to a message. What type should be
-// use for the message? There doesn't seem to be a good general type that we can
-// use. Different applications will report errors in different ways. Perhaps we
-// should allow the user to specify the message type? Or perhaps not, at this
-// point. It might be simpler if we fix the error type for now. You decide.
+// We want to generate some useful output if the predicate fails. We can
+// represent this as a function from the input to a message. It's easiest, for
+// now, to use a concrete type for the message. A `String` is sufficient.
 //
 // What is this type in Scala?
 //
@@ -55,8 +52,8 @@ package essentialscala.section2
 // What ways are there to compose finite state machines?
 //
 // Write down the method signatures of the composition rules you have come up
-// with, but at this stage we do not need to implement the bodies. You can leave
-// the implementation as `???`.
+// with, but at this stage we do not want to implement them. Leave the
+// implementation as `???`.
 
 
 // Mission 3: Applying rules
@@ -77,7 +74,7 @@ package essentialscala.section2
 // For example, suppose we had a method called `product` on `Rule`
 //
 // ```scala
-// def product(that: Rule[A,B]): Rule[A,B]
+// def product(that: Rule[A]): Rule[A]
 // ```
 //
 // We can create a data structure (which we'll just give the same name as the
@@ -87,7 +84,7 @@ package essentialscala.section2
 // First we create a data structure
 //
 // ```scala
-// final case class Product[A,B](this: Rule[A,B], that: Rule[A,B]) extends Rule[A,B]
+// final case class Product[A](this: Rule[A], that: Rule[A]) extends Rule[A]
 // ```
 //
 // Then the implementation becomes
@@ -111,6 +108,6 @@ package essentialscala.section2
 // Mission 6: Extra Awesome
 //
 // Add an extra awesome. For example:
-// - if you didn't make the error type generic, make it generic now
 // - maybe consider normalizing rules (e.g. to conjunctive normal form) to make
 // evaluation faster and error reporting clearer.
+// - can we make the error type generic, so it's not restricted to `String`?
