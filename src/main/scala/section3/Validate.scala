@@ -36,8 +36,8 @@ package essentialscala.section2
 // Taken together these two components are sufficient to define a validation
 // rule (let's call this a Rule for short):
 //
-// A Rule has
-// - and predicate; and
+// A Rule is
+// - a predicate; and
 // - an error reporting function.
 //
 // Write this in Scala code.
