@@ -24,10 +24,10 @@ sealed trait MyList[A] {
   def append(that: MyList[A]): MyList[A] =
     ???
 
-  def flatMap[B](f: A => MyList[B]) =
+  def flatMap[B](f: A => MyList[B]): MyList[B] =
     ???
 
-  def foldRight[B](z: B)(f: (B, A) => B): B =
+  def foldRight[B](z: B)(f: (A, B) => B): B =
     ???
 }
 object MyList {
