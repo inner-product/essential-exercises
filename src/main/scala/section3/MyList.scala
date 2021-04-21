@@ -7,8 +7,6 @@ package essentialscala.section3
 //
 // Pair is a head of type A and a tail of MyList[A]
 sealed trait MyList[A] {
-  import MyList._
-
   def size: Int =
     ???
 
@@ -31,9 +29,6 @@ sealed trait MyList[A] {
     ???
 }
 object MyList {
-  final case class Empty[A]() extends MyList[A]
-  final case class Pair[A](head: A, tail: MyList[A]) extends MyList[A]
-
   def empty[A]: MyList[A] = ???
 
   def apply[A](elts: A*): MyList[A] =

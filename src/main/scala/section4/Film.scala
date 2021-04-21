@@ -85,8 +85,8 @@ object TestData {
 }
 
 object Main extends App {
-  import TestData._
-  import TestMethods._
+  // import TestData._
+  // import TestMethods._
 
   // println(s"""directorsWithBackCatalogOfSize           == ${directorsWithBackCatalogOfSize(directors, 3)}""")
   // println(s"""directorsBornBefore                      == ${directorsBornBefore(directors, 1970)}""")
