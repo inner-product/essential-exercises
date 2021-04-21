@@ -32,5 +32,5 @@ object MyList {
   def empty[A]: MyList[A] = ???
 
   def apply[A](elts: A*): MyList[A] =
-    ???
+    //elts.foldRight(empty)((elt, myList) => Pair(elt, myList))
 }
