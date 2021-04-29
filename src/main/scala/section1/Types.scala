@@ -1,4 +1,4 @@
-package essentialscala.section1
+package section1
 
 object Types {
   // What is the type of the expressions a, b, c, and d below? What value do they evaluate to?

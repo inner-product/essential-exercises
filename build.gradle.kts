@@ -35,5 +35,5 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass.set("essentialscala.section1.Composition")
+    mainClass.set("section1.Composition")
 }

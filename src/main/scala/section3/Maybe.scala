@@ -1,4 +1,4 @@
-package essentialscala.section3
+package section3
 
 // In this exercise we'll implement the equivalent of the built-in Option.
 //

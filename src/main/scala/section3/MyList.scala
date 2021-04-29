@@ -1,4 +1,4 @@
-package essentialscala.section3
+package section3
 
 
 // MyList[A] is either
@@ -32,5 +32,6 @@ object MyList {
   def empty[A]: MyList[A] = ???
 
   def apply[A](elts: A*): MyList[A] =
+    ???
     //elts.foldRight(empty)((elt, myList) => Pair(elt, myList))
 }

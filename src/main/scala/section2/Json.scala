@@ -1,4 +1,4 @@
-package essentialscala.section2
+package section2
 
 // Your mission is to implement a data type to represent JSON.
 //

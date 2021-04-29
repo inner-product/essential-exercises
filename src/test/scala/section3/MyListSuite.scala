@@ -1,4 +1,4 @@
-package essentialscala.section3
+package section3
 
 import munit._
 

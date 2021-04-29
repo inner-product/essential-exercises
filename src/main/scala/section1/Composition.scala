@@ -1,4 +1,4 @@
-package essentialscala.section1
+package section1
 
 import doodle.core._
 import doodle.interact.animation._
