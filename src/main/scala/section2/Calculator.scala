@@ -28,3 +28,4 @@ package section2
 // - Understand how representing the expressions as data ("reifying" them)
 // decouples the data representation for the functions that act on it, and
 // allows us to implement different interpreters.
+object Calculator

@@ -14,3 +14,13 @@ Algebraic data types
 ## Section 3
 
 Functions and generic types
+
+
+## Section 4
+
+Collections
+
+
+## L-System
+
+Case study using algebraic data types and collections.

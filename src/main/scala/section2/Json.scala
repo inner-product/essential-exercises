@@ -11,3 +11,4 @@ package section2
 //
 // If you complete this, and still have time, implement a method called `print`
 // that prints your JSON data structure to a `String` as valid (textual) JSON.
+object Json
