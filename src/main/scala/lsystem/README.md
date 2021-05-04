@@ -36,7 +36,7 @@ Implement a method `rewrite` that given a sequence of instructions and a rewrite
 Now write a method `iterate` that is given a natural number (an integer greater than or equal to zero), a rewrite rule, and a sequence of instructions, and returns a sequence of instructions that results from applying the rewrite rule the given number of times to the instructions.
 
 
-### Mission 5: Rendering
+## Mission 5: Rendering
 
 Now we're going to finish up by rendering.our instructions. The instructions already suggest graphical output. To render it we need two things:
 
@@ -60,7 +60,24 @@ val displacement = Vec(10, direction)
 val end = start + displacement
 ```
 
-To convert the turtle movement into graphics we need to construct a sequence of `doodle.core.PathElement`. There are methods on the `PathElement` companion object to construct path elements---`lineTo` is the one you'll want (unless you want to get fancy). It draws a straight line from the current location to the given point. Only moving forward will result in output. Turning changes the turtle's internal state but doesn't result in visible output.
+To convert the turtle movement into graphics we need to construct a sequence of `doodle.core.PathElement`. There are methods on the `PathElement` companion object to construct path elements---`lineTo` is the one you'll want (except for a call to `moveTo` right at the start, to set the initial position). `lineTo` draws a straight line from the current location to the given point. Only moving the turtle forward will result in output. Turning changes the turtle's internal state but doesn't result in visible output.
 
+To help you get started there is a small example in `Turtle.scala`. Run it and you should see a square appear on screen.
+
+
+## Mission 6: Finale
+
+Using the initial instruction that is just "move forward", iterate your L-system and draw the result.
+
+
+## Option Missions
+
+If you complete the missions above with time here are some additional missions you can undertake:
+
+- Make your code as generic as you can. For example, rewrite rules can be generic in the type of instructions they work on.
+
+- Right now the turtle is probably tied to the instructions we chose for our L-system. For greater reuse the turtle instruction set could be made independent of the L-system. The minimal turtle needs to move forward and turn. These instructions might be parameterized by the distance (for moving forward) and angle (for turns). Then we need a separate step---a compiler---to tranform our L-system instruction set into our turtle instruction set.
+
+- If your turtle has the ability to branch you can create more interesting pictures. Branching means saving the current state of the turtle, executing some instructions, and returning to the saved state. Add branching and then try the "Fractal plant" given on the [Wikipedia page][lsystem] for L-systems.
 
 [lsystem]: https://en.wikipedia.org/wiki/L-system
