@@ -70,7 +70,7 @@ To help you get started there is a small example in `Turtle.scala`. Run it and y
 Using the initial instruction that is just "move forward", iterate your L-system and draw the result.
 
 
-## Option Missions
+## Optional Missions
 
 If you complete the missions above with time here are some additional missions you can undertake:
 
