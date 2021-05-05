@@ -53,7 +53,6 @@ class MyListSuite extends FunSuite {
     assertEquals(MyList.empty[Int].find(1), None)
   }
 
-
   // Combinators
   //
 

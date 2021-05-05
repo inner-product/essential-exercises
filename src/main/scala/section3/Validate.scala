@@ -16,7 +16,6 @@ package section2
 //
 // [1]: https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/
 
-
 // Mission 1: The Essence of Validation Rules.
 //
 // The simplest unit of validation is a predicate: a function from some input to
@@ -39,7 +38,6 @@ package section2
 //
 // Write this in Scala code.
 
-
 // Mission 2: Composing rules
 //
 // Think about how we could compose validation rules. What ways are there that
@@ -55,14 +53,12 @@ package section2
 // with, but at this stage we do not want to implement them. Leave the
 // implementation as `???`.
 
-
 // Mission 3: Applying rules
 //
 // We are missing a method to apply a rule to some data. This method should take
 // the data as input and return either an error or the unchanged data. Call this
 // method `apply`. Write down it's signature and leave it unimplemented (with
 // `???` as the body).
-
 
 // Mission 4: Reification
 //
@@ -96,14 +92,12 @@ package section2
 //
 // Reify every method except `apply`.
 
-
 // Mission 5: Applying ourselves
 //
 // Implement `apply`.
 //
 // Pro tip: `Rule` is an algebraic data type. In `apply` we transform an
 // algebraic data type to a different type. What strategy can we use?
-
 
 // Mission 6: Extra Awesome
 //

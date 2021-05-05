@@ -54,7 +54,6 @@ object Composition extends App {
   // where we write brackets. For example (a + b) + c = a + (b + c). If you have
   // discovered a binary composition operator for tranducers, it is associative?
 
-
   // A value that grows smoothly from 10 to 200. We'll use it as the radius of our shapes
   val growingRadius: Transducer[Double] =
     (10.0).upTo(200.0).withEasing(Easing.cubic).forSteps(240)
@@ -97,7 +96,8 @@ object Composition extends App {
         curve(pt4, pt1)
       )
 
-      ClosedPath(curvyGon).path[Algebra, Drawing]
+      ClosedPath(curvyGon)
+        .path[Algebra, Drawing]
         .rotate(angle)
         .strokeWidth(9.0)
         .strokeColor(Color.paleTurquoise)

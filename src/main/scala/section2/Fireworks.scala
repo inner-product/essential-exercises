@@ -31,29 +31,29 @@ object Fireworks extends App {
   def isFinished(lifeSpan: Double): Boolean = lifeSpan < 0.001
 
   object Interpreter {
-      // Implement this method:
-      //
-      // If the firework is a rocket and is finished, return Some(explosion)
-      // where explosion is an explosion at the same position as the firework,
-      // with a size of 10.0 and lifespan of 1.0
-      //
-      // Otherwise, create a new rocket with:
-      // - an updated position that is the old position plus the velocity
-      // - a velocity that is the old velocity plus gravity
-      // - a lifespan decreased by multiplying the lifespan by a fraction close
-      // to 1.0 (try 0.9 to start)
-      // Return Some(the new rocket)
-      //
-      // If the firework is an explosion and is finished, return None
-      // Otherwise, create a new explosion with:
-      // - the same position
-      // - a size that is the previous size multiplied by some fraction greater
-      // than 1.0 (try 1.1 to start)
-      // - a lifespan decreased by multiplying the lifespan by a fraction close
-      // to 1.0 (try 0.9 to start)
-      // Return Some(the new explosion)
-      //
-      // The code should be much shorter than this description :-D
+    // Implement this method:
+    //
+    // If the firework is a rocket and is finished, return Some(explosion)
+    // where explosion is an explosion at the same position as the firework,
+    // with a size of 10.0 and lifespan of 1.0
+    //
+    // Otherwise, create a new rocket with:
+    // - an updated position that is the old position plus the velocity
+    // - a velocity that is the old velocity plus gravity
+    // - a lifespan decreased by multiplying the lifespan by a fraction close
+    // to 1.0 (try 0.9 to start)
+    // Return Some(the new rocket)
+    //
+    // If the firework is an explosion and is finished, return None
+    // Otherwise, create a new explosion with:
+    // - the same position
+    // - a size that is the previous size multiplied by some fraction greater
+    // than 1.0 (try 1.1 to start)
+    // - a lifespan decreased by multiplying the lifespan by a fraction close
+    // to 1.0 (try 0.9 to start)
+    // Return Some(the new explosion)
+    //
+    // The code should be much shorter than this description :-D
     def transition(firework: Firework): Option[Firework] =
       ???
   }
@@ -64,17 +64,19 @@ object Fireworks extends App {
       ???
 
     def drawRocket(position: Point): Picture[Unit] =
-      circle(5.0)
-        .noStroke
+      circle(5.0).noStroke
         .fillColor(Color.gold)
         .on(circle(6.0).fillColor(Color.goldenrod))
         .on(circle(7.0).fillColor(Color.darkGoldenrod))
         .scale(0.75, 1.25)
         .at(position)
 
-    def drawExplosion(position: Point, size: Double, lifeSpan: Double): Picture[Unit] =
-      circle(size)
-        .noFill
+    def drawExplosion(
+        position: Point,
+        size: Double,
+        lifeSpan: Double
+    ): Picture[Unit] =
+      circle(size).noFill
         .strokeColor(Color.hotpink.alpha(lifeSpan.normalized))
         .strokeWidth(9.0)
         .at(position)
@@ -100,5 +102,7 @@ object Fireworks extends App {
         state.isEmpty
     }
 
-  animation.repeat(5).animate(Frame.size(400, 800).background(Color.midnightBlue))
+  animation
+    .repeat(5)
+    .animate(Frame.size(400, 800).background(Color.midnightBlue))
 }

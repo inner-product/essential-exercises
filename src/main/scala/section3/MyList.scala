@@ -1,6 +1,5 @@
 package section3
 
-
 // MyList[A] is either
 // - Empty OR
 // - Pair
@@ -33,5 +32,5 @@ object MyList {
 
   def apply[A](elts: A*): MyList[A] =
     ???
-    //elts.foldRight(empty)((elt, myList) => Pair(elt, myList))
+  //elts.foldRight(empty)((elt, myList) => Pair(elt, myList))
 }

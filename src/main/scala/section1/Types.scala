@@ -10,7 +10,6 @@ object Types {
   // Be ready to explain your answer, how you could reason to a solution, and
   // how you could verify your solution with code.
 
-
   val a = 41 + 1
 
   val b = 4 / 2
