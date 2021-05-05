@@ -17,8 +17,9 @@ In our implementation we also require an element of type `B` in case we're opera
 
 ## Running Benchmarks
 
-Change to the `benchmarks` project in sbt (use the command `project benchmarks`) and then run `Jmh / run`. The benchmarks will fail if the corresponding implementation is incomplete, so you might want to comment out some of the benchmarks while you're still in development.
+Change to the `benchmarks` project in sbt (use the command `project benchmarks`) and then run `Jmh / run`. To run just a single benchmark you can use `Jmh / run TheBenchmarkName`, replacing `TheBenchmarkName` with the name of the class containing the benchmark (for example `MapReduceBenchmark`).
 
+Each benchmark file contains two benchmarks: one "small" and one "medium". You might want to comment out the mediums benchmarks while you're developing, and then uncomment medium and comment out the small benchmark when you want more accurate performance figures.
 
 ## Mission One: Basic Map-Reduce
 

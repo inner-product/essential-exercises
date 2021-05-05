@@ -1,28 +1,32 @@
 package mapreduce
 
-import org.openjdk.jmh.annotations._
+import java.util.concurrent.TimeUnit
+
 import scala.concurrent._
 import scala.concurrent.duration._
 
+import org.openjdk.jmh.annotations._
+
 class MapReduceFutureBenchmark {
-  import MapReduceBenchmark._
+  import BenchmarkState._
 
   @Benchmark
   @BenchmarkMode(Array(Mode.AverageTime))
-  @Warmup(iterations = 10)
-  @Measurement(iterations = 10)
+  @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
+  @Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
   def basicMapReduceBenchmarkSmall(state: BenchmarkState): Unit = {
     val f = MapReduceFuture.mapReduce(state.small)(state.eatCpu)(0, _ + _)
-    Await.result(f, Duration.Infinity)
+    Await.result(f, Duration.Inf)
     ()
   }
-}
-object MapReduceBenchmark {
-  @State(Scope.Benchmark)
-  class BenchmarkState {
-    val small = Array.fill(1000)("a")
-    val medium = Array.fill(100000)("a")
-    // A deterministic function that consumes a lot of CPU
-    val eatCpu: String => Int = str => Md5.md5(str).size
+
+  @Benchmark
+  @BenchmarkMode(Array(Mode.AverageTime))
+  @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
+  @Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
+  def basicMapReduceBenchmarkMedium(state: BenchmarkState): Unit = {
+    val f = MapReduceFuture.mapReduce(state.medium)(state.eatCpu)(0, _ + _)
+    Await.result(f, Duration.Inf)
+    ()
   }
 }
