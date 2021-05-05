@@ -1,8 +1,10 @@
 package mapreduce
 
 import org.openjdk.jmh.annotations._
+import scala.concurrent._
+import scala.concurrent.duration._
 
-class MapReduceBenchmark {
+class MapReduceFutureBenchmark {
   import MapReduceBenchmark._
 
   @Benchmark
@@ -10,7 +12,8 @@ class MapReduceBenchmark {
   @Warmup(iterations = 10)
   @Measurement(iterations = 10)
   def basicMapReduceBenchmarkSmall(state: BenchmarkState): Unit = {
-    MapReduce.mapReduce(state.small)(state.eatCpu)(0, _ + _)
+    val f = MapReduceFuture.mapReduce(state.small)(state.eatCpu)(0, _ + _)
+    Await.result(f, Duration.Infinity)
     ()
   }
 }
