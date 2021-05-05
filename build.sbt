@@ -43,3 +43,13 @@ lazy val root = project
     sharedSettings,
     build := { Def.sequential(scalafixAll.toTask(""), scalafmtAll, Test / test).value }
   )
+
+
+lazy val benchmarks = project
+  .in(file("benchmarks"))
+  .settings(
+    sharedSettings,
+    build := { Def.sequential(scalafixAll.toTask(""), scalafmtAll, Test / test).value }
+  )
+  .enablePlugins(JmhPlugin)
+  .dependsOn(root)
