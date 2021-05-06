@@ -15,7 +15,7 @@ class MapReduceFutureBenchmark {
   @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
   @Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
   def basicMapReduceBenchmarkSmall(state: BenchmarkState): Unit = {
-    val f = MapReduceFuture.mapReduce(state.small)(state.eatCpu)(0, _ + _)
+    val f = MapReduceFuture.mapReduce(state.small)(state.eatCpuMap)("", state.eatCpuCombine)
     Await.result(f, Duration.Inf)
     ()
   }
@@ -25,7 +25,7 @@ class MapReduceFutureBenchmark {
   @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
   @Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
   def basicMapReduceBenchmarkMedium(state: BenchmarkState): Unit = {
-    val f = MapReduceFuture.mapReduce(state.medium)(state.eatCpu)(0, _ + _)
+    val f = MapReduceFuture.mapReduce(state.medium)(state.eatCpuMap)(0, state.eatCpuCombine)
     Await.result(f, Duration.Inf)
     ()
   }
