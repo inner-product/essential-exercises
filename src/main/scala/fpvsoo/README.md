@@ -52,9 +52,11 @@ Notice that if we allow for the difference in the algebra / `Expression` type, t
 Concretely, the following are equivalent:
 
 ``` scala
-def aMethod(a: A, b: B): C
+trait SomeType {
+  def aMethod(a: A, b: B): C
+}
 
-final case class AMethod(a: A, b: B) extends C
+final case class AMethod(source: SomeType, a: A, b: B) extends C
 ```
 
 and we can translate between the two depending on what kind of extensibility we want. If we want both kinds of extensibility we can use tagless final (or it's reified equivalent, data types ala carte, but tagless final is *much* easier to work with in Scala).
