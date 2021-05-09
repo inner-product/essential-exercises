@@ -20,10 +20,10 @@ trait CalculatorTaglessFinal[A] {
 // Mission Two: implement some concrete instances of your calculator where the
 // generic type is Double and String
 trait DoubleCalculatorTaglessFinal extends CalculatorTaglessFinal[Double]
-object DoubleCalculatorTaglessFinal extends DoubleCalculatorTaglessFinal
+// object DoubleCalculatorTaglessFinal extends DoubleCalculatorTaglessFinal
 
 trait PrettyPrintCalculatorTaglessFinal extends CalculatorTaglessFinal[String]
-object PrettyPrintCalculatorTaglessFinal extends PrettyPrintCalculatorTaglessFinal
+// object PrettyPrintCalculatorTaglessFinal extends PrettyPrintCalculatorTaglessFinal
 
 // Mission Three: show that we can extend the combinators by implementing a
 // calculator trait that adds sin and cos to the calculator
@@ -31,4 +31,4 @@ trait TrigCalculatorTaglessFinal[A] extends CalculatorTaglessFinal[A]
 
 // Mission Four: implement an interpreter for the trig calculator
 trait DoubleTrigCalculatorTaglessFinal extends TrigCalculatorTaglessFinal[Double]
-object DoubleTrigCalculatorTaglessFinal extends DoubleTrigCalculatorTaglessFinal
+// object DoubleTrigCalculatorTaglessFinal extends DoubleTrigCalculatorTaglessFinal
