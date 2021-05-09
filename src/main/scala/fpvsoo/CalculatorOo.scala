@@ -17,4 +17,17 @@ package fpvsoo
 //
 // Define an interface that extends the interface you defined above and adds
 // trigonometric functions: sin and cos.
-object CalculatorOo
+object CalculatorOo {
+  trait Expression {
+    def literal(v: Double): Double = v
+    def add(l: Double, r: Double): Double = l + r
+    def subtract(l: Double, r: Double): Double = l - r
+    def multiply(l: Double, r: Double): Double = l * r
+    def divide(l: Double, r: Double): Double = l / r
+  }
+
+  trait TrigExpression extends Expression {
+    def sin(v: Double): Double = Math.sin(v)
+    def cos(v: Double): Double = Math.cos(v)
+  }
+}
