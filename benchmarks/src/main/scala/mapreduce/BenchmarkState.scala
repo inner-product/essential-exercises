@@ -5,8 +5,9 @@ import org.openjdk.jmh.annotations._
 object BenchmarkState {
   @State(Scope.Benchmark)
   class BenchmarkState {
-    val small = Array.fill(1000)("a")
+    val small  = Array.fill(1000)("a")
     val medium = Array.fill(100000)("a")
+    val large  = Array.fill(1000000)("a")
     // A deterministic functions that consumes a lot of CPU
     val eatCpuMap: String => String = str => Md5.md5(str)
     val eatCpuCombine: (String, String) => String = (str1, str2) => {

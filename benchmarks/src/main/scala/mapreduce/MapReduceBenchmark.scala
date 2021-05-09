@@ -24,4 +24,13 @@ class MapReduceBenchmark {
     MapReduce.mapReduce(state.medium)(state.eatCpuMap)("", state.eatCpuCombine)
     ()
   }
+
+  @Benchmark
+  @BenchmarkMode(Array(Mode.AverageTime))
+  @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
+  @Measurement(iterations = 10, time = 1, timeUnit = TimeUnit.SECONDS)
+  def basicMapReduceBenchmarkLarge(state: BenchmarkState): Unit = {
+    MapReduce.mapReduce(state.large)(state.eatCpuMap)("", state.eatCpuCombine)
+    ()
+  }
 }
