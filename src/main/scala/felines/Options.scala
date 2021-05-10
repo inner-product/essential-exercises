@@ -18,13 +18,16 @@ object Options {
     ???
 
   // If both options contain values, append the two lists. Otherwise return None.
-  def appendListOption(a: Option[List[String]], b: Option[List[String]]): Option[List[String]] =
+  def appendListOption(
+      a: Option[List[String]],
+      b: Option[List[String]]
+  ): Option[List[String]] =
     ???
 
   // If both options contain a value, return an option containing the product of both values
   // If only one option has a value return just that option
   // If neither option has a value return None
-  def multiplyListOption(a: Option[Int], b: Option[Int]): Option[Int] =
+  def multiplyIntOption(a: Option[Int], b: Option[Int]): Option[Int] =
     ???
 
   // This line uses Cats implicits, and hence prevents the compiler complaining

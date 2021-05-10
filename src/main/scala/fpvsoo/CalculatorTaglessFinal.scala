@@ -30,5 +30,6 @@ trait PrettyPrintCalculatorTaglessFinal extends CalculatorTaglessFinal[String]
 trait TrigCalculatorTaglessFinal[A] extends CalculatorTaglessFinal[A]
 
 // Mission Four: implement an interpreter for the trig calculator
-trait DoubleTrigCalculatorTaglessFinal extends TrigCalculatorTaglessFinal[Double]
+trait DoubleTrigCalculatorTaglessFinal
+    extends TrigCalculatorTaglessFinal[Double]
 // object DoubleTrigCalculatorTaglessFinal extends DoubleTrigCalculatorTaglessFinal

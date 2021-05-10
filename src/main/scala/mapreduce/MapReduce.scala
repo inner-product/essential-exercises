@@ -14,16 +14,15 @@ object MapReduce {
     // MapReduceBenchmark.basicMapReduceBenchmarkMedium  avgt   50  1.436 ± 0.009   s/op
     // MapReduceBenchmark.basicMapReduceBenchmarkLarge   avgt   50 14.381 ± 0.073   s/op
     data.map(f).foldLeft(empty)(combine)
-    //
-    // I would expect his solution to be slightly more performant as we don't
-    // create an intermediate data structure, but the benchmarks do not show
-    // this.
-    //
-    // Benchmark                                         Mode  Cnt  Score   Error  Units
-    // MapReduceBenchmark.basicMapReduceBenchmarkMedium  avgt   50  1.493 ± 0.035   s/op
-    // MapReduceBenchmark.basicMapReduceBenchmarkLarge   avgt   50 14.892 ± 0.192   s/op
-    //
-    // data.foldLeft(empty)((accum, elt) => combine(accum, f(elt)))
-
+  //
+  // I would expect his solution to be slightly more performant as we don't
+  // create an intermediate data structure, but the benchmarks do not show
+  // this.
+  //
+  // Benchmark                                         Mode  Cnt  Score   Error  Units
+  // MapReduceBenchmark.basicMapReduceBenchmarkMedium  avgt   50  1.493 ± 0.035   s/op
+  // MapReduceBenchmark.basicMapReduceBenchmarkLarge   avgt   50 14.892 ± 0.192   s/op
+  //
+  // data.foldLeft(empty)((accum, elt) => combine(accum, f(elt)))
 
 }
