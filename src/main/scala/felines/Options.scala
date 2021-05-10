@@ -1,6 +1,5 @@
 package felines
 
-import cats._
 import cats.implicits._
 
 object Options {
@@ -13,4 +12,22 @@ object Options {
   //   addIntOption(Some(1), None)    == Some(1)
   def addIntOption(a: Option[Int], b: Option[Int]): Option[Int] =
     ???
+
+  // If both options have values return a tuple of the values. Otherwise return None.
+  def tupleOption(a: Option[Int], b: Option[String]): Option[(Int, String)] =
+    ???
+
+  // If both options contain values, append the two lists. Otherwise return None.
+  def appendListOption(a: Option[List[String]], b: Option[List[String]]): Option[List[String]] =
+    ???
+
+  // If both options contain a value, return an option containing the product of both values
+  // If only one option has a value return just that option
+  // If neither option has a value return None
+  def multiplyListOption(a: Option[Int], b: Option[Int]): Option[Int] =
+    ???
+
+  // This line uses Cats implicits, and hence prevents the compiler complaining
+  // about an unused import before the methods above have been implemented.
+  1 |+| 1
 }
