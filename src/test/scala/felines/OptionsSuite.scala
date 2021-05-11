@@ -30,9 +30,16 @@ class OptionsSuite extends FunSuite {
   }
 
   test("multiplyIntOption") {
-    assertEquals(multiplyIntOption(Some(1), Some(2)), Some(2))
-    assertEquals(multiplyIntOption(Some(1), None), Some(1))
-    assertEquals(multiplyIntOption(None, Some(2)), Some(2))
+    assertEquals(multiplyIntOption(Some(4), Some(2)), Some("Hi" * 8))
+    assertEquals(multiplyIntOption(Some(1), None), None)
+    assertEquals(multiplyIntOption(None, Some(2)), None)
     assertEquals(multiplyIntOption(None, None), None)
+  }
+
+  test("sumListOption") {
+    assertEquals(sumListOption(Some(List(1)), Some(List(2, 3))), Some(6))
+    assertEquals(sumListOption(Some(List(1, 2, 3)), None), Some(6))
+    assertEquals(sumListOption(None, Some(List(4, 5, 6))), Some(15))
+    assertEquals(sumListOption(None, None), None)
   }
 }

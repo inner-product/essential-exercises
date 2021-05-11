@@ -24,10 +24,20 @@ object Options {
   ): Option[List[String]] =
     ???
 
-  // If both options contain a value, return an option containing the product of both values
-  // If only one option has a value return just that option
-  // If neither option has a value return None
-  def multiplyIntOption(a: Option[Int], b: Option[Int]): Option[Int] =
+  // If both options contain a value, return an option containing the String
+  // "Hi" repeated the number of times equals to the product of both values.
+  // Otherwise return None
+  //
+  // Example:
+  //   multiplyIntOption(Some(4), Some(2)) == Some("HiHiHiHiHiHiHiHi")
+  //
+  // Pro tip: There is a multiply method on String: "Hi" * 2 == "HiHi"
+  def multiplyIntOption(a: Option[Int], b: Option[Int]): Option[String] =
+    ???
+
+  // If both or either option contains a value return the sum of all the Ints
+  // Other return None.
+  def sumListOption(a: Option[List[Int]], b: Option[List[Int]]): Option[Int] =
     ???
 
   // This line uses Cats implicits, and hence prevents the compiler complaining
