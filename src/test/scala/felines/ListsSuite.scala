@@ -11,7 +11,7 @@ class ListsSuite extends FunSuite {
       Some(List(1, 2, 3))
     )
     assertEquals(listOfOptionToOptionOfList(List(None, Some(2), Some(3))), None)
-    assertEquals(listOfOptionToOptionOfList(List()), None)
+    assertEquals(listOfOptionToOptionOfList(List()), Some(List()))
   }
 
   test("addOptionList") {

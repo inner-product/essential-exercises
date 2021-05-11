@@ -13,7 +13,7 @@ class OptionsSuite extends FunSuite {
   }
 
   test("tupleOption") {
-    assertEquals(tupleOption(Some(1), Some("Hi")), Some((3, "Hi")))
+    assertEquals(tupleOption(Some(1), Some("Hi")), Some((1, "Hi")))
     assertEquals(tupleOption(Some(1), None), None)
     assertEquals(tupleOption(None, Some("Hi")), None)
     assertEquals(tupleOption(None, None), None)
