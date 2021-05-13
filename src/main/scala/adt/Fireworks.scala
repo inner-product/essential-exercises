@@ -16,7 +16,7 @@ object Fireworks extends App {
   //
   // OR
   //
-  // An Explosition, which has
+  // An Explosion, which has
   // - a position of type Point
   // - a size of type Double
   // - a lifespan of type Double
