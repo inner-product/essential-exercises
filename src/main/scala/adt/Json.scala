@@ -11,4 +11,41 @@ package section2
 //
 // If you complete this, and still have time, implement a method called `print`
 // that prints your JSON data structure to a `String` as valid (textual) JSON.
-object Json
+sealed trait Json {
+  import Json._
+
+  def print: String =
+    this match {
+      case JObject(elts) => elts.map{ case (k, v) => s"$k: ${v.print}" }.mkString("{", ",", "}")
+	  case JArray(elts) => elts.map(_.print).mkString("[", ",", "]")
+	  case JString(value) => s""""${value}""""
+	  case JNumber(value) => value.toString
+	  case JBoolean(value) => value.toString
+	  case JNull => "null"
+    }
+}
+object Json {
+  // To avoid polluting the name space I've put all the leaves of the algebraic data type in here
+  final case class JObject(elts: Map[String, Json]) extends Json
+  final case class JArray(elts: List[Json]) extends Json
+  final case class JString(value: String) extends Json
+  final case class JNumber(value: Double) extends Json
+  final case class JBoolean(value: Boolean) extends Json
+  case object JNull extends Json
+
+  // Constructors
+  val jNull: Json = JNull
+  val jTrue: Json = JBoolean(true)
+  val jFalse: Json = JBoolean(false)
+  def boolean(value: Boolean): Json = if(value) jTrue else jFalse
+  def number(value: Double): Json = JNumber(value)
+  def string(value: String): Json = JString(value)
+  def array(values: Json*): Json = JArray(values.toList)
+  def jObject(values: (String, Json)*): Json = JObject(values.toMap)
+}
+
+object JsonExample extends App {
+  val json = Json.jObject("name" -> Json.string("Nils Olav III"), "rank" -> Json.string("Brigadier"), "knighted" -> Json.jTrue, "see-also" -> Json.array(Json.string("William Windsor"), Json.string("Wojtek")))
+
+  println(json.print)
+}
