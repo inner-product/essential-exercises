@@ -1,6 +1,5 @@
 package typeclasses
 
-
 object Declaring {
   // A Configuration value of type A is
   // - A Value containing a value of type A OR

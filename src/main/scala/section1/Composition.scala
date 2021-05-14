@@ -72,7 +72,6 @@ object Composition extends App {
 
     curveTo(cp1, cp2, end)
   }
-
   val growingCircle =
     growingRadius
       .map(radius =>

@@ -26,7 +26,6 @@ object Using {
   def combineAllF[F[_], A](fa: F[A]): A =
     ???
 
-
   // If you used a implicit parameter in combineAll, combineAllOpt, and
   // combineAllF above, rewrite them using a context bound. If you used a
   // context bound do the reverse.
