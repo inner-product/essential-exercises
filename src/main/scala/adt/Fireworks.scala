@@ -22,7 +22,9 @@ object Fireworks extends App {
   // - a lifespan of type Double
   //
   // Implement this, replacing the type declaration below
-  type Firework = Nothing
+  sealed trait Firework
+  final case class Rocket(position: Point, velocity: Vec, lifeSpan: Double) extends Firework
+  final case class Explosion(position: Point, size: Double, lifeSpan: Double) extends Firework
 
   // Gravity drags you down
   val gravity = Vec(0.0, -0.5)
@@ -55,13 +57,24 @@ object Fireworks extends App {
     //
     // The code should be much shorter than this description :-D
     def transition(firework: Firework): Option[Firework] =
-      ???
+      firework match {
+	      case Rocket(position, velocity, lifeSpan) =>
+          if(isFinished(lifeSpan)) Some(Explosion(position, 10.0, 1.0))
+          else Some(Rocket(position + velocity, velocity + gravity, lifeSpan * 0.9))
+
+	      case Explosion(position, size, lifeSpan) =>
+          if(isFinished(lifeSpan)) None
+          else Some(Explosion(position, size * 1.1, lifeSpan * 0.9))
+      }
   }
 
   object Renderer {
     // Implement this method using drawRocket and drawExplosion below
     def draw(firework: Firework): Picture[Unit] =
-      ???
+      firework match {
+	      case Rocket(position, _, _) => drawRocket(position)
+	      case Explosion(position, size, lifeSpan) => drawExplosion(position, size, lifeSpan)
+      }
 
     def drawRocket(position: Point): Picture[Unit] =
       circle(5.0).noStroke
@@ -84,7 +97,7 @@ object Fireworks extends App {
 
   // Implement this as a Rocket starting at Point(0, -300), with initial
   // velocity Vec(0, 25.0) and lifespan 1.0
-  val start: Firework = ???
+  val start: Firework = Rocket(Point(0, -300), Vec(0, 25.0), 1.0)
 
   val animation: Transducer[Picture[Unit]] =
     new Transducer[Picture[Unit]] {
