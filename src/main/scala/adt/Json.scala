@@ -16,12 +16,13 @@ sealed trait Json {
 
   def print: String =
     this match {
-      case JObject(elts) => elts.map{ case (k, v) => s"$k: ${v.print}" }.mkString("{", ",", "}")
-	  case JArray(elts) => elts.map(_.print).mkString("[", ",", "]")
-	  case JString(value) => s""""${value}""""
-	  case JNumber(value) => value.toString
-	  case JBoolean(value) => value.toString
-	  case JNull => "null"
+      case JObject(elts) =>
+        elts.map { case (k, v) => s"$k: ${v.print}" }.mkString("{", ",", "}")
+      case JArray(elts)    => elts.map(_.print).mkString("[", ",", "]")
+      case JString(value)  => s""""${value}""""
+      case JNumber(value)  => value.toString
+      case JBoolean(value) => value.toString
+      case JNull           => "null"
     }
 }
 object Json {
@@ -37,7 +38,7 @@ object Json {
   val jNull: Json = JNull
   val jTrue: Json = JBoolean(true)
   val jFalse: Json = JBoolean(false)
-  def boolean(value: Boolean): Json = if(value) jTrue else jFalse
+  def boolean(value: Boolean): Json = if (value) jTrue else jFalse
   def number(value: Double): Json = JNumber(value)
   def string(value: String): Json = JString(value)
   def array(values: Json*): Json = JArray(values.toList)
@@ -45,7 +46,15 @@ object Json {
 }
 
 object JsonExample extends App {
-  val json = Json.jObject("name" -> Json.string("Nils Olav III"), "rank" -> Json.string("Brigadier"), "knighted" -> Json.jTrue, "see-also" -> Json.array(Json.string("William Windsor"), Json.string("Wojtek")))
+  val json = Json.jObject(
+    "name" -> Json.string("Nils Olav III"),
+    "rank" -> Json.string("Brigadier"),
+    "knighted" -> Json.jTrue,
+    "see-also" -> Json.array(
+      Json.string("William Windsor"),
+      Json.string("Wojtek")
+    )
+  )
 
   println(json.print)
 }

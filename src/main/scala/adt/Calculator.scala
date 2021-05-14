@@ -31,34 +31,39 @@ package section2
 object Calculator extends App {
   sealed trait Expression
   final case class Literal(value: Double) extends Expression
-  final case class Addition(left: Expression, right: Expression) extends Expression
-  final case class Division(left: Expression, right: Expression) extends Expression
-  final case class Multiplication(left: Expression, right: Expression) extends Expression
-  final case class Subtraction(left: Expression, right: Expression) extends Expression
+  final case class Addition(left: Expression, right: Expression)
+      extends Expression
+  final case class Division(left: Expression, right: Expression)
+      extends Expression
+  final case class Multiplication(left: Expression, right: Expression)
+      extends Expression
+  final case class Subtraction(left: Expression, right: Expression)
+      extends Expression
 
   object ArithmeticInterpreter {
     def eval(expr: Expression): Double =
       expr match {
-	    case Literal(value) => value
-	    case Addition(left, right) => eval(left) + eval(right)
-	    case Division(left, right) => eval(left) / eval(right)
-	    case Multiplication(left, right) => eval(left) * eval(right)
-	    case Subtraction(left, right) => eval(left) - eval(right)
+        case Literal(value)              => value
+        case Addition(left, right)       => eval(left) + eval(right)
+        case Division(left, right)       => eval(left) / eval(right)
+        case Multiplication(left, right) => eval(left) * eval(right)
+        case Subtraction(left, right)    => eval(left) - eval(right)
       }
   }
 
   object PrintingInterpreter {
     def eval(expr: Expression): String =
       expr match {
-	    case Literal(value) => value.toString
-	    case Addition(left, right) => s"(${eval(left)} + ${eval(right)})"
-	    case Division(left, right) => s"(${eval(left)} / ${eval(right)})"
-	    case Multiplication(left, right) => s"(${eval(left)} * ${eval(right)})"
-	    case Subtraction(left, right) => s"(${eval(left)} - ${eval(right)})"
+        case Literal(value)              => value.toString
+        case Addition(left, right)       => s"(${eval(left)} + ${eval(right)})"
+        case Division(left, right)       => s"(${eval(left)} / ${eval(right)})"
+        case Multiplication(left, right) => s"(${eval(left)} * ${eval(right)})"
+        case Subtraction(left, right)    => s"(${eval(left)} - ${eval(right)})"
       }
   }
 
-  val example = Multiplication(Literal(23.42), Addition(Literal(60.0), Literal(7.0)))
+  val example =
+    Multiplication(Literal(23.42), Addition(Literal(60.0), Literal(7.0)))
   println(ArithmeticInterpreter.eval(example))
   println(PrintingInterpreter.eval(example))
 }
