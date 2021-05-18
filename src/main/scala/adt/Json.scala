@@ -1,4 +1,4 @@
-package section2
+package adt
 
 // Your mission is to implement a data type to represent JSON.
 //
