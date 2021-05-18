@@ -1,4 +1,4 @@
-package section2
+package adt
 
 import doodle.core._
 import doodle.interact.animation._
