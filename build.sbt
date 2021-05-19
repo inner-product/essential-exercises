@@ -9,21 +9,26 @@ ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports"
 
 val catsVersion = "2.4.2"
 val catsEffectVersion = "2.3.1"
+val catsParseVersion = "0.3.3"
 val circeVersion = "0.13.0"
 val doodleVersion = "0.9.23"
 val munitVersion = "0.7.22"
+val scalaTestVersion = "3.2.7"
 
 val build = taskKey[Unit]("Format, compile, and test")
 
 val sharedSettings = Seq(
   libraryDependencies ++= Seq(
-    "org.typelevel"     %% "cats-core"     % catsVersion,
-    "org.typelevel"     %% "cats-effect"   % catsEffectVersion,
-    "io.circe"          %% "circe-core"    % circeVersion,
-    "io.circe"          %% "circe-generic" % circeVersion,
-    "io.circe"          %% "circe-parser"  % circeVersion,
-    "org.creativescala" %% "doodle"        % doodleVersion,
-    "org.scalameta"     %% "munit"         % munitVersion % Test
+    "org.typelevel"     %% "cats-core"       % catsVersion,
+    "org.typelevel"     %% "cats-effect"     % catsEffectVersion,
+    "org.typelevel"     %% "cats-parse"      % catsParseVersion,
+    "io.circe"          %% "circe-core"      % circeVersion,
+    "io.circe"          %% "circe-generic"   % circeVersion,
+    "io.circe"          %% "circe-parser"    % circeVersion,
+    "org.creativescala" %% "doodle"          % doodleVersion,
+    "org.scalameta"     %% "munit"           % munitVersion % Test,
+    "org.scalatest"     %% "scalatest"       % scalaTestVersion % Test,
+    "org.scalatestplus" %% "scalacheck-1-15" % "3.2.5.0" % Test
   ),
   // Turn on some compiler flags that scalafix needs
   scalacOptions ++= Seq(
