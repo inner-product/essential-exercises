@@ -28,7 +28,8 @@ val sharedSettings = Seq(
     "org.creativescala" %% "doodle"          % doodleVersion,
     "org.scalameta"     %% "munit"           % munitVersion % Test,
     "org.scalatest"     %% "scalatest"       % scalaTestVersion % Test,
-    "org.scalatestplus" %% "scalacheck-1-15" % "3.2.5.0" % Test
+    "org.scalatestplus" %% "scalacheck-1-15" % "3.2.5.0" % Test,
+    "io.chrisdavenport" %% "cats-scalacheck" % "0.3.0" % Test
   ),
   // Turn on some compiler flags that scalafix needs
   scalacOptions ++= Seq(
