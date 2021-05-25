@@ -12,7 +12,7 @@ object Shop {
     )
 
   // map from product name to quantity available
-  def stock: Map[String, Int] =
+  val stock: Map[String, Int] =
     Map(
       "Apples" -> 10,
       "Blueberries" -> 0,
