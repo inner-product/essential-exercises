@@ -13,7 +13,7 @@ val catsParseVersion = "0.3.3"
 val circeVersion = "0.13.0"
 val doodleVersion = "0.9.23"
 val munitVersion = "0.7.22"
-val scalaTestVersion = "3.2.7"
+val scalaTestVersion = "3.2.9"
 
 val build = taskKey[Unit]("Format, compile, and test")
 
