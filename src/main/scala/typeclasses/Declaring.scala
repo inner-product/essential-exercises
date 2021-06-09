@@ -26,7 +26,4 @@ object Declaring {
   // Optional: Configuration has the same structure (is isomorphic to) a type in the
   // standard library. What type is that?
 
-  // Optional: implement a Parallel instance for Configuration, so that parMapN
-  // and friends do something useful.
-
 }
