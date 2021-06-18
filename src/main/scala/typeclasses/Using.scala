@@ -17,11 +17,11 @@ object Using {
   // Complete the definition of this method. It should combine all the values in
   // the list with a Semigroup instance for A and return them wrapped in Some.
   // If there are no values in the list it should return None.
-  def combineAllOpt[A](l: List[A]): Option[A] =
+  def combineAllOpt[A](l: List[A])(implicit s: Semigroup[A]): Option[A] =
     ???
 
   // Complete the definition of this method. It should combine all the values in
-  // the container A, which should have a Foldable instance, with a Monoid
+  // the container F, which should have a Foldable instance, with a Monoid
   // instance for A.
   def combineAllF[F[_], A](fa: F[A]): A =
     ???
