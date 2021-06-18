@@ -20,3 +20,14 @@ trait JsonWriter[A] {
 // - a List of any type that can be written as Json
 //   I.e. List[A] where there is a JsonWriter[A]
 // - an Option of any type that can be written as Json
+//
+// The below should all work
+// object Example {
+//   def write[A](a: A)(implicit j: JsonWriter[A]): Json =
+//     j.write(a)
+//
+//   println(write("Hello"))
+//   println(write(true))
+//   println(write(List("A", "string")))
+//   println(write(Option(List(true, false))))
+// }
