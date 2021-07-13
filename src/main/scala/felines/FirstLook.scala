@@ -1,4 +1,4 @@
-package cats
+package felines
 
 import cats.implicits._
 
