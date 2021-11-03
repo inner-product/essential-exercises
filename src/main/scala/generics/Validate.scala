@@ -1,5 +1,6 @@
 package generics
 
+object Validate {
 // This exercise continues on the theme of algebraic data types and structural
 // recursion, adding in generic types (aka type variables, parametric
 // polymorphism).
@@ -105,3 +106,4 @@ package generics
 // - maybe consider normalizing rules (e.g. to conjunctive normal form) to make
 // evaluation faster and error reporting clearer.
 // - can we make the error type generic, so it's not restricted to `String`?
+}
