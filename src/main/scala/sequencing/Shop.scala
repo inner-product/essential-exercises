@@ -1,4 +1,4 @@
-package essentialexercises.section4
+package sequencing
 
 object Shop {
   // map from product name to price

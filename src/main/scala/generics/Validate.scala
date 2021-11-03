@@ -1,4 +1,4 @@
-package section2
+package generics
 
 // This exercise continues on the theme of algebraic data types and structural
 // recursion, adding in generic types (aka type variables, parametric

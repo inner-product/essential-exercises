@@ -1,4 +1,4 @@
-package section3
+package sequencing
 
 // In this exercise we'll implement the equivalent of the built-in Option.
 //

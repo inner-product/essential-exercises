@@ -1,4 +1,4 @@
-package section3
+package generics
 
 // MyList[A] is either
 // - Empty OR

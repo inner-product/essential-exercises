@@ -1,4 +1,4 @@
-package essentialexercises.section4
+package sequencing
 
 final case class Director(
     firstName: String,
