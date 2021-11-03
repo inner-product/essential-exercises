@@ -1,7 +1,27 @@
 package sequencing
 
+import kantan.csv._
+import kantan.csv.ops._
+
 object FingerExercises {
-  val data = Data.data
+  final case class Population(country: String, year: Int, population: Int)
+  implicit val decoder: RowDecoder[Population] = RowDecoder.ordered {
+    (c: String, y: Int, p: Int) =>
+      Population(c, y, p)
+  }
+
+  val data: List[Population] =
+    this.getClass
+      .getResource("/population.csv")
+      .asCsvReader[Population](rfc)
+      .toList
+      .map(result =>
+        result match {
+          case Right(population) => population
+          case Left(error) =>
+            throw new Exception(s"Reading data failed with error $error")
+        }
+      )
 
   // Answer the following questions:
   //
