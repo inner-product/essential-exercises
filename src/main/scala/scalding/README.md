@@ -129,6 +129,10 @@ sealed trait Op[+O] {
 object Op {
   def source[I](i: Iterable[I]): Op[I] = Source(_ => Future.successful(i.iterator))
   def empty[I]: Op[I] = source(Nil)
+  
+  final case class Source[I](input: ConcurrentExecutionContext => Future[Iterator[I]]) extends Op[I] {
+    // ...
+  }
 
   final case class MapOp[I, O](input: Op[I], fn: I => O) extends Op[O] {
     // ...
