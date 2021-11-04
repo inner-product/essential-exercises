@@ -63,15 +63,40 @@ object SizeHint {
   // ...
 }
 sealed abstract class SizeHint {
+  def +(other: SizeHint): SizeHint
+
   // ...
 }
 case object NoClue extends SizeHint {
   // ...
 }
 final case class FiniteHint(rows: BigInt = -1L, cols: BigInt = -1L) extends SizeHint {
+  def +(other: SizeHint) =
+    other match {
+      case NoClue => NoClue
+      // In this case, a hint on one side, will overwrite lack of knowledge (-1L)
+      case FiniteHint(orows, ocols) => FiniteHint(rows.max(orows), cols.max(ocols))
+      case sp @ SparseHint(_, _, _) => (sp + this)
+    }
+    
   // ...
 }
 final case class SparseHint(sparsity: Double, rows: BigInt, cols: BigInt) extends SizeHint {
+  def +(other: SizeHint): SizeHint =
+    other match {
+      case NoClue           => NoClue
+      case FiniteHint(r, c) => (this + SparseHint(1.0, r, c))
+      case SparseHint(sp, r, c) => {
+        // if I occupy a bin with probability p, and you q, then either: p + q - pq
+        if ((sparsity == 1.0) || (sp == 1.0)) {
+          FiniteHint(rows.max(r), cols.max(c))
+        } else {
+          val newSp = sparsity + sp - sp * sparsity
+          SparseHint(newSp, rows.max(r), cols.max(c))
+        }
+      }
+    }
+
   // ...
 }
 ```
