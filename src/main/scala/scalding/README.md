@@ -68,6 +68,8 @@ sealed abstract class SizeHint {
   // ...
 }
 case object NoClue extends SizeHint {
+  def +(other: SizeHint) = NoClue
+
   // ...
 }
 final case class FiniteHint(rows: BigInt = -1L, cols: BigInt = -1L) extends SizeHint {
