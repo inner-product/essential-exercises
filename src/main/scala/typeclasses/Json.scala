@@ -13,7 +13,7 @@ final case class JArray(value: List[Json]) extends Json
 //
 // What language feature implements a type class in Scala?
 
-final case class Product(name: String, description: Stirng, price: Double)
+final case class Product(name: String, description: String, price: Double)
 final case class Order(items: List[Product])
 // Implement type class instances to write Product and Order to Json. The Json
 // representation is not particularly important but at least make it sensible.
