@@ -103,7 +103,7 @@ final case class SparseHint(sparsity: Double, rows: BigInt, cols: BigInt) extend
 }
 ```
 
-1. What strategy is this an example of?
+1. What strategy is `SizeHint` an example of?
 2. What is the relationship between the object `SizeHint` and the `sealed abstract class` `SizeHint`?
 3. What are objects like `SizeHint` used for in Scala?
 4. How can we have an object and a type with the same name?
@@ -147,7 +147,7 @@ object Op {
 ```
 
 1. What is the role of the methods `source` and `empty` in the object `Op`?
-2. Why are `Source`, `Materialize`, and `Concat` defined inside the object `Op`?
+2. Why are `Source`, `MapOp`, and `Filter` defined inside the object `Op`?
 3. Why are the methods `map` and `filter` defined the way they are?
 4. What is the difference between `result` and, `map` and `filter`?
 5. What does `[+O]` declare? What does the `+` in front of `O` mean?
