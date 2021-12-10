@@ -1,4 +1,4 @@
-package section3
+package generics
 
 import munit._
 
@@ -40,17 +40,17 @@ class MyListSuite extends FunSuite {
   }
 
   test("find +ve case") {
-    assertEquals(MyList(1, 2, 3, 4).find(1), Some(1))
-    assertEquals(MyList(1, 2, 3, 4).find(2), Some(2))
-    assertEquals(MyList(1, 2, 3, 4).find(3), Some(3))
-    assertEquals(MyList(1, 2, 3, 4).find(4), Some(4))
+    assertEquals(MyList(1, 2, 3, 4).find(x => x == 1), Some(1))
+    assertEquals(MyList(1, 2, 3, 4).find(x => x == 2), Some(2))
+    assertEquals(MyList(1, 2, 3, 4).find(x => x == 3), Some(3))
+    assertEquals(MyList(1, 2, 3, 4).find(x => x == 4), Some(4))
   }
 
   test("find -ve case") {
-    assertEquals(MyList(1, 2, 3, 4).find(5), None)
-    assertEquals(MyList(1, 2, 3, 4).find(-1), None)
-    assertEquals(MyList.empty[Int].find(0), None)
-    assertEquals(MyList.empty[Int].find(1), None)
+    assertEquals(MyList(1, 2, 3, 4).find(x => x == 5), None)
+    assertEquals(MyList(1, 2, 3, 4).find(x => x == -1), None)
+    assertEquals(MyList.empty[Int].find(x => x == 0), None)
+    assertEquals(MyList.empty[Int].find(x => x == 1), None)
   }
 
   // Combinators
