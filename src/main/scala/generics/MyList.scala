@@ -5,6 +5,8 @@ package generics
 // - Pair
 //
 // Pair is a head of type A and a tail of MyList[A]
+//
+// Implement the MyList data type and then implement the methods below
 sealed trait MyList[A] {
   def size: Int =
     ???
@@ -12,7 +14,7 @@ sealed trait MyList[A] {
   def contains(x: A): Boolean =
     ???
 
-  def find(x: A): Option[A] =
+  def find(x: A => Boolean): Option[A] =
     ???
 
   def map[B](f: A => B): MyList[B] =
