@@ -17,3 +17,4 @@ package fpvsoo
 //
 // Define an interface that extends the interface you defined above and adds
 // trigonometric functions: sin and cos.
+object CalculatorOo
