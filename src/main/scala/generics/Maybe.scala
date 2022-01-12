@@ -5,12 +5,11 @@ package generics
 // Maybe is Just or Empty
 // Just is a value of type A
 // What strategy / concept is Maybe an example of?
-sealed trait Maybe[+A]
-{
-  def contains[AA >: A](x: AA): Boolean =
+sealed trait Maybe[A] {
+  def contains(x: A): Boolean =
     ???
 
-  def getOrElse[AA >: A](default: AA): A =
+  def getOrElse(default: A): A =
     ???
 
   def map[B](f: A => B): Maybe[B] =
@@ -23,11 +22,7 @@ sealed trait Maybe[+A]
     ???
 }
 object Maybe {
-  final case class Just[A](value: A) extends Maybe[A]
-  final case object Empty extends Maybe[Nothing]
-  //final case class Empty[A]() extends Maybe[A]
+  def empty[A]: Maybe[A] = ???
 
-  def empty[A]: Maybe[A] = Empty
-
-  def apply[A](x: A): Maybe[A] = Just(x)
+  def apply[A](x: A): Maybe[A] = ???
 }
