@@ -17,7 +17,9 @@ object MyList {
 }
 
 object MyListExample extends App {
-  val list = MyList(1, 2, 3, 4)
+  val intList = MyList(1, 2, 3, 4)
+  println(s"intList.max is ${intList.max}, should be 4")
 
-  println(s"list.max is ${list.max}, should be 4")
+  val doubleList = MyList(3.0, 10.0, 2.0, -3.0)
+  println(s"doubleList.max is ${doubleList.max}, should be 10.0")
 }
