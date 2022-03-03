@@ -1,10 +1,11 @@
 package lsystem
 
+import cats.effect.IOApp
 import doodle.core._
 import doodle.java2d._
-import doodle.syntax._
+import doodle.syntax.all._
 
-object Turtle extends App {
+object Turtle extends IOApp.Simple {
   // This path defines a square
   val examplePath: List[PathElement] =
     List(
@@ -15,10 +16,12 @@ object Turtle extends App {
       PathElement.lineTo(0, 0)
     )
 
-  // Convert a list of path elements into a path that can be rendered, add some
-  // styling, and draw it.
-  def drawPath(path: List[PathElement]): Unit =
-    OpenPath(path).path.strokeColor(Color.deepSkyBlue).strokeWidth(7.0).draw()
+  // Convert a list of path elements into a path that can be rendered, and add
+  // some styling.
+  def drawPath(path: List[PathElement]): Picture[Unit] =
+    OpenPath(path).path
+      .strokeColor(Color.deepSkyBlue)
+      .strokeWidth(7.0)
 
-  drawPath(examplePath)
+  val run = drawPath(examplePath).drawToIO
 }

@@ -1,13 +1,14 @@
 package section1
 
+import cats.effect.IOApp
 import doodle.core._
 import doodle.interact.animation._
 import doodle.interact.easing.Easing
 import doodle.interact.syntax._
 import doodle.java2d._
-import doodle.syntax._
+import doodle.syntax.all._
 
-object Composition extends App {
+object Composition extends IOApp.Simple {
   // In this exercise we're interested in composition: when we combine two
   // things to create something more complex. Composition is one of the
   // fundamental ideas of functional programming. With this exercise we're
@@ -102,9 +103,9 @@ object Composition extends App {
         .strokeColor(Color.paleTurquoise)
     }
 
-  growingCircle.animate(Frame.size(600, 600))
+  val run = growingCircle.toStream.animateToIO(Frame.size(600, 600))
   // Try commenting out growingCircle above and uncommenting spinningCurvygon
   // below
   //
-  // spinningCurvygon.animate(Frame.size(600, 600))
+  // spinningCurvygon.toStream.animateToIO(Frame.size(600, 600))
 }

@@ -1,11 +1,13 @@
 package adt
 
+import cats.effect.IOApp
 import doodle.core._
 import doodle.interact.animation._
+import doodle.interact.syntax._
 import doodle.java2d._
-import doodle.syntax._
+import doodle.syntax.all._
 
-object Fireworks extends App {
+object Fireworks extends IOApp.Simple {
 
   // A Firework is either
   //
@@ -102,7 +104,9 @@ object Fireworks extends App {
         state.isEmpty
     }
 
-  animation
-    .repeat(5)
-    .animate(Frame.size(400, 800).background(Color.midnightBlue))
+  val run =
+    animation
+      .repeat(5)
+      .toStream
+      .animateToIO(Frame.size(400, 800).background(Color.midnightBlue))
 }

@@ -47,7 +47,7 @@ Turtle graphics define lines in terms of the current position and direction of a
 
 ``` scala
 import doodle.core._  // For Point and Vec
-import doodle.syntax._ // For degrees syntax
+import doodle.syntax.all._ // For degrees syntax
 
 // The initial values for the turtle
 val start = Point(1, 1)

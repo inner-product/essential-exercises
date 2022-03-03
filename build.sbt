@@ -8,10 +8,10 @@ ThisBuild / useSuperShell := false
 ThisBuild / scalafixDependencies += "com.github.liancheng" %% "organize-imports" % "0.5.0"
 
 val catsVersion = "2.4.2"
-val catsEffectVersion = "2.3.1"
+val catsEffectVersion = "3.3.5"
 val catsParseVersion = "0.3.3"
 val circeVersion = "0.13.0"
-val doodleVersion = "0.9.23"
+val doodleVersion = "0.10.1"
 val kantanVersion = "0.6.2"
 val munitVersion = "0.7.22"
 val scalaTestVersion = "3.2.9"
