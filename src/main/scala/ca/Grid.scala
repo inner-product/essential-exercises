@@ -21,6 +21,7 @@ final case class Grid[A](rows: Int, cols: Int, data: Array[A]) {
     data(offset)
   }
 
+  /** Transform the cells based on a function from the surrounding cells. */
   def mapView[B: ClassTag](f: GridView[A] => B): Grid[B] = {
     val result: Array[B] = Array.ofDim(data.size)
     var r = 0
@@ -37,10 +38,16 @@ final case class Grid[A](rows: Int, cols: Int, data: Array[A]) {
     Grid(rows, cols, result)
   }
 
+  /** Get the values in the cells. */
   def values: List[A] =
     data.toList
 
 }
+
+/** Provides a view into a grid that is centered on the current cell. So, for
+  * example, the point (0, -1) is the cell to the left of the current cell
+  * (remember that indexing is done based on row and column, not x and y.)
+  */
 final case class GridView[A](row: Int, col: Int, grid: Grid[A]) {
   def apply(r: Int, c: Int): A =
     grid(row + r, col + c)
