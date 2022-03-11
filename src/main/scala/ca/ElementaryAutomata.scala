@@ -1,8 +1,8 @@
 package ca
 
 import doodle.core._
-import doodle.syntax.all._
 import doodle.java2d._
+import doodle.syntax.all._
 
 /** An elementary automata is a one dimensional automata with binary states */
 final case class ElementaryAutomata(

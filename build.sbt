@@ -49,6 +49,8 @@ lazy val root = project
   .in(file("."))
   .settings(
     sharedSettings,
+    // Used for Blackhole.consumeCPU in parallelism exercises.
+    libraryDependencies += "org.openjdk.jmh" % "jmh-core" % "1.32",
     build := {
       Def.sequential(scalafixAll.toTask(""), scalafmtAll, Test / test).value
     }

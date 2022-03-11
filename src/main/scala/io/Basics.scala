@@ -2,7 +2,7 @@ package io
 
 import cats.effect._
 
-// The goal of this exercise is to introduce some of the basics of using IO:
+// The goal of these exercises is to introduce some of the basics of using IO:
 //
 // - constructing IO
 // - doing one thing after another (sequencing)
