@@ -16,6 +16,11 @@ object Parallelism extends IOApp.Simple {
   // 1. Blackhole.consumeCPU consumes CPU cycles, and so is a useful way to
   // create tasks that take up enough time we can actually see the benefits of
   // parallelism. Wrap it up in an IO so we can use it in our IO based programs.
+  //
+  // This is an example call to Blackhole.consumeCPU. The parameter is the
+  // number of "tokens", which determines how much CPU is consumed. It needs to
+  // be quite high to have measurable results in what we'll do later.
+  Blackhole.consumeCPU(999999999L)
   val consume = ???
 
   // 2. Using the `timed` method, calculate the time it takes to run consume.
