@@ -10,7 +10,11 @@ final case class Score(
 
   /** True if all the letter were guessed exactly correctly. In other words if the word was correctly guessed and the game is won. */
   def isExactlyCorrect: Boolean =
-    letter1.isExactlyCorrect && letter2.isExactlyCorrect && letter3.isExactlyCorrect && letter4.isExactlyCorrect && letter5.isExactlyCorrect
+    letter1.isExactlyCorrect &&
+      letter2.isExactlyCorrect &&
+      letter3.isExactlyCorrect &&
+      letter4.isExactlyCorrect &&
+      letter5.isExactlyCorrect
 }
 object Score {
   def apply(answer: String, guess: String): Score = {
@@ -24,7 +28,8 @@ object Score {
        """.stripMargin
     )
 
-    val score: Array[LetterScore] = Array.fill(5)(Incorrect)
+    val score: Array[LetterScore] =
+      Array.tabulate(5)(idx => Incorrect(guess(idx)))
     // True if the letter at the given index in the answer has been matched
     // against a letter in the guess, and therefore cannot be used to match
     // against a different letter in the guess.
@@ -44,7 +49,7 @@ object Score {
       else if (!answerMatched(answerIdx) && answer(answerIdx) == char) {
         guessMatched(guessIdx) = true
         answerMatched(answerIdx) = true
-        score(guessIdx) = PartlyCorrect
+        score(guessIdx) = PartlyCorrect(char)
       } else findPartlyCorrectChar(char, guessIdx, answerIdx + 1)
     }
 
@@ -52,7 +57,7 @@ object Score {
     // searching for partly correct letters next
     answer.zip(guess).zipWithIndex.foreach { case ((a, g), idx) =>
       if (a == g) {
-        score(idx) = ExactlyCorrect
+        score(idx) = ExactlyCorrect(g)
         answerMatched(idx) = true
         guessMatched(idx) = true
       }

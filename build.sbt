@@ -1,7 +1,7 @@
 name := "essential-exercises"
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
-ThisBuild / scalaVersion := "2.13.5"
+ThisBuild / scalaVersion := "2.13.8"
 ThisBuild / useSuperShell := false
 
 // ScalaFix configuration
@@ -28,6 +28,7 @@ val sharedSettings = Seq(
     "io.circe" %% "circe-parser" % circeVersion,
     "org.creativescala" %% "doodle" % doodleVersion,
     "com.nrinaudo" %% "kantan.csv" % kantanVersion,
+    "com.lihaoyi" %% "fansi" % "0.3.0",
     "org.scalameta" %% "munit" % munitVersion % Test,
     "org.scalatest" %% "scalatest" % scalaTestVersion % Test,
     "org.scalatestplus" %% "scalacheck-1-15" % "3.2.5.0" % Test,

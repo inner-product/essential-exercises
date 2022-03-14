@@ -1,19 +1,21 @@
 package wordle
 
 sealed abstract class LetterScore extends Product with Serializable {
+  def char: Char
+
   def isExactlyCorrect: Boolean =
     this match {
-      case ExactlyCorrect => true
-      case PartlyCorrect  => false
-      case Incorrect      => false
+      case _: ExactlyCorrect => true
+      case _: PartlyCorrect  => false
+      case _: Incorrect      => false
     }
 }
 
 /** Letter is in the word and in the correct location */
-case object ExactlyCorrect extends LetterScore
+final case class ExactlyCorrect(char: Char) extends LetterScore
 
 /** Letter is in the word but not in this location */
-case object PartlyCorrect extends LetterScore
+final case class PartlyCorrect(char: Char) extends LetterScore
 
 /** Letter is not in the word */
-case object Incorrect extends LetterScore
+final case class Incorrect(char: Char) extends LetterScore

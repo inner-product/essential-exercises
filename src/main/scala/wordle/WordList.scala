@@ -5,7 +5,7 @@ import scala.io.Source
 object WordList {
   def read: List[String] =
     Source
-      .fromFile(getClass.getResource("/wordle.txt").getFile())
+      .fromInputStream(getClass.getResourceAsStream("/wordle.txt"))
       .getLines()
       .toList
 }
