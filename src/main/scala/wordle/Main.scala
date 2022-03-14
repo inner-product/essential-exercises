@@ -14,11 +14,11 @@ object Main extends IOApp.Simple {
     }
 
   def formatScore(score: Score): fansi.Str =
-    formatLetterScore(score.letter1) ++
+    formatLetterScore(score.letter0) ++
+      formatLetterScore(score.letter1) ++
       formatLetterScore(score.letter2) ++
       formatLetterScore(score.letter3) ++
-      formatLetterScore(score.letter4) ++
-      formatLetterScore(score.letter5)
+      formatLetterScore(score.letter4)
 
   def loop(game: Game): IO[Unit] = {
     IO.readLine.flatMap { guess =>

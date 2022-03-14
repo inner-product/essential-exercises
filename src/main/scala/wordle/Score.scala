@@ -1,20 +1,26 @@
 package wordle
 
 final case class Score(
+    letter0: LetterScore,
     letter1: LetterScore,
     letter2: LetterScore,
     letter3: LetterScore,
-    letter4: LetterScore,
-    letter5: LetterScore
+    letter4: LetterScore
 ) {
 
-  /** True if all the letter were guessed exactly correctly. In other words if the word was correctly guessed and the game is won. */
+  /** Get the word represented by this score */
+  def guess: String =
+    letter0.char.toString :+ letter1.char :+ letter2.char :+ letter3.char :+ letter4.char
+
+  /** True if all the letter were guessed exactly correctly. In other words if the
+    * word was correctly guessed and the game is won.
+    */
   def isExactlyCorrect: Boolean =
-    letter1.isExactlyCorrect &&
+    letter0.isExactlyCorrect &&
+      letter1.isExactlyCorrect &&
       letter2.isExactlyCorrect &&
       letter3.isExactlyCorrect &&
-      letter4.isExactlyCorrect &&
-      letter5.isExactlyCorrect
+      letter4.isExactlyCorrect
 }
 object Score {
   def apply(answer: String, guess: String): Score = {

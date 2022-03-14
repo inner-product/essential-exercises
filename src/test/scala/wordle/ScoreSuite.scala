@@ -3,6 +3,10 @@ package wordle
 import munit.FunSuite
 
 class ScoreSuite extends FunSuite {
+  test("Guess returns the correct word") {
+    assertEquals(Score("abcde", "guess").guess, "guess")
+  }
+
   test("Scoring is correct for guesses that exactly match the answer") {
     assert(Score("katsu", "katsu").isExactlyCorrect)
     assert(Score("total", "total").isExactlyCorrect)
